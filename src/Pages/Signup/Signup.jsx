@@ -63,22 +63,48 @@ const Signup = () => {
         firstName,
         lastName,
       };
-      dispatch(postData(payload));
-      setPhone("");
-      setEmail("");
-      setFirstName("");
-      setLastName("");
-      setPassword("");
+
+      const lowercase = new RegExp("(?=.*[a-z])");
+      const uppercase = new RegExp("(?=.*[A-Z])");
+      const numeric = new RegExp("(?=.*[0-9])");
+      const specialChar = new RegExp("(?=.*[!@#$%^$*])");
+      const sixLetter = new RegExp("(?=.{6,})");
+
+      if (
+        lowercase.test(password) &&
+        uppercase.test(password) &&
+        numeric.test(password) &&
+        specialChar.test(password) &&
+        sixLetter.test(password)
+      ) {
+        dispatch(postData(payload));
+        toast({
+          title: `Hi ${firstName} welcome`,
+          position: "top",
+          description: `We've created your account for you.`,
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
+        setPhone("");
+        setEmail("");
+        setFirstName("");
+        setLastName("");
+        setPassword("");
+      } else {
+        toast({
+          title: "Password validation failed",
+          description:
+            "Password must be of atleast six characters long containing atleast one lowercase, uppercase, numeric and special characters",
+          status: "info",
+          duration: 4000,
+          isClosable: true,
+          position: "top",
+        });
+      }
 
       // notification success signup toast
-      toast({
-        title: `Hi ${firstName} welcome`,
-        position: "top",
-        description: `We've created your account for you.`,
-        status: "success",
-        duration: 9000,
-        isClosable: true,
-      });
+    
     }
   };
   const handleClose = () => {
@@ -132,6 +158,7 @@ const Signup = () => {
               <FormControl isInvalid={phoneError} ml="20px">
                 <Input
                   type="tel"
+                  maxLength="10"
                   placeholder="Phone number"
                   onChange={(e) => setPhone(e.target.value)}
                 />
