@@ -13,6 +13,7 @@ import {
   Flex,
   FormControl,
   FormErrorMessage,
+  FormHelperText,
   Heading,
   Input,
   InputGroup,
@@ -37,16 +38,29 @@ const Signup = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
   const toast = useToast();
+  const [validPassword, setValidPassword] = useState(false);
 
-  // Empty error
-  const phoneError = phone === "";
-  const emailError = email === "";
-  const passwordError = password === "";
-  const firstNameError = firstName === "";
-  const lasNameError = lastName === "";
   const [otp, setOtp] = useState(Math.floor(Math.random() * 5000));
   const storedEmail = useSelector((store) => store.authReducer.signup);
-
+  const passwordChange = (e) => {
+    setPassword(e.target.value);
+    const lowercase = new RegExp("(?=.*[a-z])");
+    const uppercase = new RegExp("(?=.*[A-Z])");
+    const numeric = new RegExp("(?=.*[0-9])");
+    const specialChar = new RegExp("(?=.*[!@#$%^$*])");
+    const sixLetter = new RegExp("(?=.{8,})");
+    if (
+      lowercase.test(password) &&
+      uppercase.test(password) &&
+      numeric.test(password) &&
+      specialChar.test(password) &&
+      sixLetter.test(password)
+    ) {
+      setValidPassword(true);
+    } else {
+      setValidPassword(false);
+    }
+  };
   const handlePostData = () => {
     let checkEmail = storedEmail.map((e) => {
       return e.email;
@@ -63,19 +77,24 @@ const Signup = () => {
         firstName,
         lastName,
       };
-
-      const lowercase = new RegExp("(?=.*[a-z])");
-      const uppercase = new RegExp("(?=.*[A-Z])");
-      const numeric = new RegExp("(?=.*[0-9])");
-      const specialChar = new RegExp("(?=.*[!@#$%^$*])");
-      const sixLetter = new RegExp("(?=.{6,})");
-
+      if (!validPassword) {
+        toast({
+          title: "Password validation failed",
+          description:
+            "Password must be of atleast 8 characters long containing atleast one lowercase, uppercase, numeric and special characters",
+          status: "info",
+          duration: 4000,
+          isClosable: true,
+          position: "top",
+        });
+      }
       if (
-        lowercase.test(password) &&
-        uppercase.test(password) &&
-        numeric.test(password) &&
-        specialChar.test(password) &&
-        sixLetter.test(password)
+        email &&
+        password &&
+        phone &&
+        firstName &&
+        lastName &&
+        validPassword
       ) {
         dispatch(postData(payload));
         toast({
@@ -91,20 +110,9 @@ const Signup = () => {
         setFirstName("");
         setLastName("");
         setPassword("");
-      } else {
-        toast({
-          title: "Password validation failed",
-          description:
-            "Password must be of atleast six characters long containing atleast one lowercase, uppercase, numeric and special characters",
-          status: "info",
-          duration: 4000,
-          isClosable: true,
-          position: "top",
-        });
       }
 
       // notification success signup toast
-    
     }
   };
   const handleClose = () => {
@@ -155,77 +163,66 @@ const Signup = () => {
                 <option value="48">+48</option>
                 <option value="49">+49</option>
               </select>
-              <FormControl isInvalid={phoneError} ml="20px">
+              <FormControl ml="20px">
                 <Input
                   type="tel"
                   maxLength="10"
                   placeholder="Phone number"
                   onChange={(e) => setPhone(e.target.value)}
                 />
-                {!phoneError ? (
-                  ""
-                ) : (
-                  <FormErrorMessage>Phone number is required.</FormErrorMessage>
-                )}
+                <FormHelperText>
+                  Please provide a valid mobile number
+                </FormHelperText>
               </FormControl>
             </InputGroup>
             <InputGroup>
-              <FormControl isInvalid={emailError}>
+              <FormControl>
                 <Input
                   mt="20px"
                   type="email"
                   placeholder="Email"
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                {!emailError ? (
-                  ""
-                ) : (
-                  <FormErrorMessage>Email is required.</FormErrorMessage>
-                )}
+                <FormHelperText>
+                  Please provide a valid email address
+                </FormHelperText>
               </FormControl>
             </InputGroup>
             <InputGroup>
-              <FormControl isInvalid={passwordError}>
+              <FormControl>
                 <Input
                   mt="20px"
                   type="password"
                   placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={passwordChange}
                 />
-                {!passwordError ? (
-                  ""
-                ) : (
-                  <FormErrorMessage>Password is required.</FormErrorMessage>
-                )}
+                <FormHelperText color={validPassword ? "green" : "red"}>
+                  Please provide a strong password atleast 8 characters long
+                  e.g. meUser@#45
+                </FormHelperText>
               </FormControl>
             </InputGroup>
             <InputGroup>
               <Flex justifyContent="space-between" gap="10px">
-                <FormControl isInvalid={firstNameError}>
+                <FormControl>
                   <Input
                     mt="20px"
                     type="text"
                     placeholder="First name"
                     onChange={(e) => setFirstName(e.target.value)}
                   />
-                  {!firstNameError ? (
-                    ""
-                  ) : (
-                    <FormErrorMessage>First is required.</FormErrorMessage>
-                  )}
+                  <FormHelperText>
+                    Provide your firstname here...
+                  </FormHelperText>
                 </FormControl>
-                <FormControl isInvalid={lasNameError}>
+                <FormControl>
                   <Input
                     mt="20px"
                     type="text"
                     placeholder="Last name"
                     onChange={(e) => setLastName(e.target.value)}
                   />
-                  {!lasNameError ? (
-                    ""
-                  ) : (
-                    <FormErrorMessage>Last is required.</FormErrorMessage>
-                  )}
+                  <FormHelperText>Provide your lastname here...</FormHelperText>
                 </FormControl>
               </Flex>
             </InputGroup>
