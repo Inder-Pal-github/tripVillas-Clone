@@ -63,7 +63,6 @@ const Signup = () => {
         firstName,
         lastName,
       };
-      navigation("/");
       dispatch(postData(payload));
       setPhone("");
       setEmail("");

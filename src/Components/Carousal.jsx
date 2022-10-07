@@ -38,7 +38,7 @@ const CarousalCard = ({ item }) => {
       borderRadius="5px"
       _hover={{ boxShadow: "2xl" }}
       onClick={() =>
-        navigate({ pathname: `/products/${item.id}`, state: item })
+        navigate(`/products/${item.id}`,{state:{title:item.title}} )
       }
     >
       <Box width="inherit" height="60%">

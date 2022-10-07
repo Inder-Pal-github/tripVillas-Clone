@@ -40,8 +40,7 @@ const Login = () => {
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-  const commingFrom = location.state?.from?.pathname || "/";
-
+  const commingFrom = location.state?.from?.pathname;
   const loginHandle = () => {
     let fname = "";
     let sEmail = storedData.map((e) => {
@@ -52,10 +51,9 @@ const Login = () => {
       return e.password;
     });
     if (sEmail.includes(email) && sPassord.includes(password)) {
-      console.log("firstName", fname);
       dispatch({ type: types.GET_LOGIN_SUCCESS, payload: true });
       dispatch({ type: types.GET_FISTNAME_SUCCESS, payload: fname });
-      navigation(commingFrom, { replace: true });
+      commingFrom !== undefined ? navigation(commingFrom) : navigation("/");
       toast({
         title: "Successful.",
         position: "top",

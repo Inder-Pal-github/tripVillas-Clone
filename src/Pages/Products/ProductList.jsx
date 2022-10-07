@@ -32,8 +32,6 @@ import { getCities } from "../../Redux/AppReducer/action";
 import Searchbar_HomePage from "../../Components/Searchbar_HomePage";
 const ProductList = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
-  console.log(location);
   const country_id = "101";
   const cities = statesData.filter((state) => state.country_id === country_id);
   const allProducts = useSelector((store) => store.appReducer.allProducts);

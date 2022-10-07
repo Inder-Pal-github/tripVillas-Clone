@@ -82,15 +82,17 @@ const Navbar = () => {
     >
       <Flex justifyContent="space-between">
         <Box h="60px" ml="1rem">
-          <Image
-            w="100%"
-            h="26px"
-            src="https://d2v8elt324ukrb.cloudfront.net/static/riotuikit/images/logo.c72056a22f91.png"
-            alt="tripVillas_Logo"
-            display="block"
-            margin="auto"
-            mt="1rem"
-          ></Image>
+          <Link to="/">
+            <Image
+              w="100%"
+              h="26px"
+              src="https://d2v8elt324ukrb.cloudfront.net/static/riotuikit/images/logo.c72056a22f91.png"
+              alt="tripVillas_Logo"
+              display="block"
+              margin="auto"
+              mt="1rem"
+            />
+          </Link>
         </Box>
         <Box h="60px" mr="1rem">
           <Flex justifyContent="center" alignItems="center" h="60px">
