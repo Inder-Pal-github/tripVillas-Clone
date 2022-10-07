@@ -24,10 +24,16 @@ import {
   PopoverContent,
   PopoverBody,
 } from "@chakra-ui/react";
-import { DrawerBody, DrawerCloseButton } from "@chakra-ui/react";
+import {
+  DrawerBody,
+  DrawerCloseButton,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+} from "@chakra-ui/react";
 import { RiContactsFill } from "react-icons/ri";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as types from "../Redux/AuthReducer/actionType";
 
