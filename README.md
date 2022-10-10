@@ -49,7 +49,7 @@ This a collaborative project done within a 4 members team
 
 **Footer**
 
-![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/PostingNewProperty.png?raw=true)
+![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/Footer.png?raw=true)
 
 **Single Hotel Room Page**
 
