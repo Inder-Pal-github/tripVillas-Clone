@@ -110,6 +110,7 @@ const Signup = () => {
         setFirstName("");
         setLastName("");
         setPassword("");
+        navigation("/login");
       }
 
       // notification success signup toast
