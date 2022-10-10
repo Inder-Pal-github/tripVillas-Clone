@@ -23,7 +23,7 @@ This a collaborative project done within a 4 members team
 
 ## Demo
 
-`Live Link` https://im4.ezgif.com/tmp/ezgif-4-b137cf6424.gif
+`Live Link` https://tripvillas-three.vercel.app/
 
 ## Screenshots
 
