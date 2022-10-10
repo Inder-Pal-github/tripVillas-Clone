@@ -29,15 +29,19 @@ This a collaborative project done within a 4 members team
 
 **Landing Page**
 
-![App Screenshot](https://github.com/deepRaj06/kindly-earthquake-283/blob/master/Screenshots/LandingPage.png?raw=true)
+![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/LandingPage.png?raw=true)
 
 **Signup Page**
 
-![App Screenshot](https://github.com/deepRaj06/kindly-earthquake-283/blob/master/Screenshots/SignupForm.png?raw=true)
+![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/SignupForm.png?raw=true)
+
+**Signup Page password validation**
+
+![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/SignupFormvalid.png?raw=true)
 
 **Login Page**
 
-![App Screenshot](https://github.com/deepRaj06/kindly-earthquake-283/blob/master/Screenshots/LoginForm.png?raw=true)
+![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/LoginForm.png?raw=true)
 
 **Posting New Property First Page**
 
@@ -45,19 +49,19 @@ This a collaborative project done within a 4 members team
 
 **Footer**
 
-![App Screenshot](https://github.com/deepRaj06/kindly-earthquake-283/blob/master/Screenshots/Footer.png?raw=true)
+![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/PostingNewProperty.png?raw=true)
 
 **Single Hotel Room Page**
 
-![App Screenshot](https://github.com/deepRaj06/kindly-earthquake-283/blob/master/Screenshots/IndividualRoomDetails.png?raw=true)
+![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/IndividualRoomDetails.png?raw=true)
 
 **Booking Details Page**
 
-![App Screenshot](https://github.com/deepRaj06/kindly-earthquake-283/blob/master/Screenshots/BookingDetails.png?raw=true)
+![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/BookingDetails.png?raw=true)
 
 **Booking Confirmation Page**
 
-![App Screenshot](https://github.com/deepRaj06/kindly-earthquake-283/blob/master/Screenshots/BookingConfirmation.png?raw=true)
+![App Screenshot](https://github.com/Inder-Pal-github/tripVillas-Clone/blob/master/Screenshots/BookingConfirmation.png?raw=true)
 
 ## Tech Stack
 
