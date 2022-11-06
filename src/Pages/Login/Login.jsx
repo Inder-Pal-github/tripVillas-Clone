@@ -44,7 +44,7 @@ const Login = () => {
   const loginHandle = () => {
     let fname = "";
     let sEmail = storedData.map((e) => {
-      fname = e.firstName;
+      if(e.email===email) fname = e.firstName;
       return e.email;
     });
     let sPassord = storedData.map((e) => {

@@ -71,6 +71,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch({ type: types.GET_LOGOUT_SUCCESS, payload: false });
     navigate("/");
+    window.location.reload();
   };
   return (
     <Box
