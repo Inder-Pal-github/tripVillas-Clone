@@ -23,7 +23,7 @@ This a collaborative project done within a 4 members team
 
 ## Demo
 
-`Live Link` https://tripvillas-three.vercel.app/
+`Live Link` https://tripsvilla.netlify.app/
 
 ## Screenshots
 
